@@ -1,0 +1,24 @@
+{
+    "intents": [
+      {
+        "tag": "greeting",
+        "patterns": ["hi", "hello", "hey", "good morning"],
+        "responses": ["Hello! How can I help you?", "Hi there! Ask me anything."]
+      },
+      {
+        "tag": "timing",
+        "patterns": ["office time", "working hours", "when open", "timing"],
+        "responses": ["Office timing is 9 AM to 5 PM Monday to Friday."]
+      },
+      {
+        "tag": "password",
+        "patterns": ["reset password", "forgot password", "change password"],
+        "responses": ["Click on 'Forgot Password' on login page to reset it."]
+      },
+      {
+        "tag": "fees",
+        "patterns": ["fees", "payment", "pay fees", "how to pay fees"],
+        "responses": ["You can pay fees online through student portal."]
+      }
+    ]
+  }

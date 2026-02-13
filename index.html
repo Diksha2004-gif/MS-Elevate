@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Smart Helpdesk Chatbot</title>
+<style>
+body { font-family: Arial; text-align: center; background:#f2f2f2; }
+#chatbox { width: 60%; margin: auto; background:white; padding:20px; border-radius:10px; height:400px; overflow-y:auto;}
+.user { color: blue; }
+.bot { color: green; }
+input { width:70%; padding:10px; }
+button { padding:10px; }
+</style>
+</head>
+
+<body>
+
+<h2>AI Smart Helpdesk Chatbot</h2>
+
+<div id="chatbox"></div>
+<br>
+<input id="text" type="text" placeholder="Ask something..." />
+<button onclick="send()">Send</button>
+
+<script>
+function send(){
+    let msg = document.getElementById("text").value;
+
+    fetch("/get", {
+        method:"POST",
+        headers:{"Content-Type":"application/x-www-form-urlencoded"},
+        body:"msg="+msg
+    })
+    .then(res=>res.json())
+    .then(data=>{
+        document.getElementById("chatbox").innerHTML +=
+        "<p class='user'><b>You:</b> "+msg+"</p>" +
+        "<p class='bot'><b>Bot:</b> "+data.reply+"</p>";
+        document.getElementById("text").value="";
+    });
+}
+</script>
+
+</body>
+</html>
